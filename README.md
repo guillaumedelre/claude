@@ -144,10 +144,10 @@ Pour installer un skill spécifique dans votre projet :
 
 ```bash
 # Copier le dossier du skill dans votre projet
-cp -r symfony-7-4-console ~/.claude/skills/
+cp -r skills/symfony-7-4-console ~/.claude/skills/
 
 # Ou créer un lien symbolique
-ln -s /path/to/claude-skills/symfony-7-4-console ~/.claude/skills/
+ln -s /path/to/claude-skills/skills/symfony-7-4-console ~/.claude/skills/
 ```
 
 ### Comment Claude utilise les skills
@@ -223,7 +223,7 @@ Format : `{library-name}-{major}-{minor}` (sans patch version)
 
 ### Ajouter un nouveau skill
 
-1. Créer le dossier : `{library}-{major}-{minor}/`
+1. Créer le dossier : `skills/{library}-{major}-{minor}/`
 2. Créer `SKILL.md` avec :
    - Frontmatter YAML (name, description, triggers)
    - Quick reference avec exemples pratiques
