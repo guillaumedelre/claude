@@ -16,14 +16,16 @@ Skills are self-contained documentation packages that Claude Code can load to pr
 
 ```
 claude-skills/
-├── symfony-7-4-{component}/    # Symfony 7.4 components (44 total)
-├── symfony-0-6-ai/             # Symfony AI components (experimental)
-├── api-platform-4-2/           # API Platform 4.2 reference
-├── doctrine-orm-3/             # Doctrine ORM 3 reference
-├── doctrine-migrations-3/      # Doctrine Migrations 3.x reference
-├── frankenphp-1/               # FrankenPHP 1.x reference
-├── phpunit-12/                 # PHPUnit 12 reference
-└── zenstruck-foundry-2/        # Zenstruck Foundry 2 reference
+├── skills/                         # All skill packages
+│   ├── symfony-7-4-{component}/    # Symfony 7.4 components (44 total)
+│   ├── symfony-0-6-ai/             # Symfony AI components (experimental)
+│   ├── api-platform-4-2/           # API Platform 4.2 reference
+│   ├── doctrine-orm-3/             # Doctrine ORM 3 reference
+│   ├── doctrine-migrations-3/      # Doctrine Migrations 3.x reference
+│   ├── frankenphp-1/               # FrankenPHP 1.x reference
+│   ├── phpunit-12/                 # PHPUnit 12 reference
+│   └── zenstruck-foundry-2/        # Zenstruck Foundry 2 reference
+└── rules/                          # Claude Code rules for this project
 
 Each skill directory contains:
 ├── SKILL.md                    # Main skill file with metadata and quick reference
@@ -130,7 +132,7 @@ Each follows the same structure pattern but focuses on its specific domain.
 ## Working with This Repository
 
 **To add a new skill:**
-1. Create directory: `{library-name}-{version}/`
+1. Create directory: `skills/{library-name}-{version}/`
 2. Add `SKILL.md` with frontmatter, quick reference, and links
 3. Create `references/` subdirectory
 4. Add detailed reference files in `references/`
