@@ -33,6 +33,21 @@ When writing commit messages:
 3. Breaking change: append `!` after type/scope, and/or add `BREAKING CHANGE:` footer
 4. Body and footers separated from description by a blank line
 5. Footer format: `token: value` or `token #value` (e.g. `Fixes #42`)
+6. Always add a `Signed-off-by` trailer: `Signed-off-by: Firstname Lastname <email@example.com>`
+
+## Body: when and what
+
+Add a body when the description alone is not enough to understand the commit:
+
+| Situation | Body required |
+|-----------|---------------|
+| Non-obvious motivation (why this approach and not another) | yes |
+| Bug fix with a subtle root cause | yes |
+| Refactor with architectural implications | yes |
+| Routine change (dep update, typo, formatting) | no |
+| Self-explanatory feature | no |
+
+The body explains the **why**, not the **what** (the diff already shows that). Keep it factual: context, constraints, trade-offs considered. One short paragraph is enough in most cases.
 
 ## Breaking changes
 

@@ -40,6 +40,16 @@ Map severity words automatically ("Critical" → ❌, "Warning" → ⚠️).
 **Verdict:** [one sentence: status + top priority action]
 ```
 
+## When there are no findings
+
+Replace the findings section and summary table with a single line:
+
+```
+✅ No findings — [scope] looks clean.
+```
+
+Keep the header (scope, file count) and add a one-sentence verdict if context warrants it.
+
 ## Principles
 
 - Readable in under 30 seconds for verdict-only readers
