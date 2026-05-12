@@ -33,7 +33,6 @@ When writing commit messages:
 3. Breaking change: append `!` after type/scope, and/or add `BREAKING CHANGE:` footer
 4. Body and footers separated from description by a blank line
 5. Footer format: `token: value` or `token #value` (e.g. `Fixes #42`)
-6. Always add a `Signed-off-by` trailer: `Signed-off-by: Firstname Lastname <email@example.com>`
 
 ## Body: when and what
 
