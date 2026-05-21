@@ -20,6 +20,7 @@ When contributing to an open source project (fixing an issue, submitting a PR):
 
 ## Branch naming
 
+- Never commit directly to `main` or `master` — always work on a dedicated branch
 - Before creating a branch, inspect recent branch names in the repository (`git branch -r`) and existing PR titles to infer the project convention
 - Propose a branch name that follows that convention; if no pattern is detectable, default to `type/short-description` (e.g. `fix/null-pointer-on-empty-input`)
 - Ask for confirmation before creating the branch if the convention is ambiguous
