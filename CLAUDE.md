@@ -4,157 +4,67 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository Overview
 
-This is a collection of **Claude Code skills** that provide specialized documentation and reference material for various PHP frameworks and libraries, particularly focused on Symfony 7.4 ecosystem, API Platform, Doctrine ORM/Migrations, FrankenPHP, and PHP testing tools (PHPUnit 12, Zenstruck Foundry 2).
+This is a collection of **Claude Code rules** that define behavioral guidelines for Claude when working on any project.
 
-Skills are self-contained documentation packages that Claude Code can load to provide expert guidance on specific libraries and frameworks. Each skill provides:
-- Quick reference examples for common use cases
-- Detailed reference documentation
-- Best practices and patterns
-- Testing guidance
+Rules are markdown files loaded automatically by Claude Code. Each rule enforces a specific behavior: tone, commit format, tool usage, reporting style, etc.
 
 ## Repository Structure
 
 ```
-claude-skills/
-├── skills/                         # All skill packages
-│   ├── symfony-7-4-{component}/    # Symfony 7.4 components (44 total)
-│   ├── symfony-0-6-ai/             # Symfony AI components (experimental)
-│   ├── api-platform-4-2/           # API Platform 4.2 reference
-│   ├── doctrine-orm-3/             # Doctrine ORM 3 reference
-│   ├── doctrine-migrations-3/      # Doctrine Migrations 3.x reference
-│   ├── frankenphp-1/               # FrankenPHP 1.x reference
-│   ├── phpunit-12/                 # PHPUnit 12 reference
-│   └── zenstruck-foundry-2/        # Zenstruck Foundry 2 reference
-└── rules/                          # Claude Code rules for this project
-
-Each skill directory contains:
-├── SKILL.md                    # Main skill file with metadata and quick reference
-└── references/                 # Detailed reference documentation
-    └── *.md                    # Topic-specific reference files
+.claude/
+└── rules/                  # Behavioral rules loaded by Claude Code
+    ├── casual-tone.md
+    ├── concise-comments.md
+    ├── context7-mcp.md
+    ├── conventional-commit.md
+    ├── docker-compose-first.md
+    ├── dx-report-format.md
+    ├── git-commit-guard.md
+    ├── no-em-dash.md
+    ├── objective-analysis.md
+    ├── oss-contribution.md
+    ├── pragmatic-design.md
+    ├── precise-tech-terms.md
+    ├── reliable-information.md
+    └── sourced-docs.md
 ```
 
-## Skill File Structure
+## Creating or Modifying Rules
 
-Each skill follows a standard structure:
+### File format
 
-### SKILL.md Format
-- **YAML frontmatter**: Contains `name` and `description` with trigger keywords
-- **Overview section**: Installation, quick reference, common patterns
-- **Documentation structure**: Links to detailed reference files
-- **When to read references**: Guidance on when to consult detailed docs
+Each rule is a plain markdown file with an optional frontmatter to restrict the rule to specific file paths:
 
-### Reference Files
-Located in `references/` subdirectory, these provide comprehensive documentation on specific topics. Examples:
-- `commands.md` - Command creation, arguments, options
-- `output.md` - Output formatting and styling
-- `doctrine-orm.md` - Full ORM documentation
-- `api-platform.md` - Complete API Platform guide
-
-## Creating or Modifying Skills
-
-### Naming Convention
-- Format: `{library-name}-{major-version}-{minor-version}`
-- Examples: `symfony-7-4-console`, `api-platform-4-2`, `doctrine-orm-3`
-- Use hyphens, lowercase only
-
-### SKILL.md Requirements
-
-**Frontmatter:**
-```yaml
+```markdown
 ---
-name: "skill-name"
-description: "Brief description. Use when [scenarios]. Triggers on: keyword1, keyword2, Class names, attribute names."
+paths: ["**/*.md"]
 ---
+
+When doing X:
+
+- Do this
+- Not that
 ```
 
-The `description` field is critical - it determines when Claude Code loads the skill. Include:
-1. Brief summary of what the skill covers
-2. "Use when..." scenarios describing when to invoke the skill
-3. "Triggers on:" followed by comma-separated keywords, class names, attributes, and concepts that should trigger the skill
+Omit the frontmatter if the rule applies globally.
 
-**Content structure:**
-1. GitHub link and official docs link
-2. Installation instructions
-3. Quick reference with 5-10 common code examples
-4. Documentation structure (link to reference files)
-5. "When to read references" section guiding users to appropriate detailed docs
+### Content guidelines
 
-**Code examples:**
-- Must be complete, runnable code snippets
-- Include relevant imports and attributes
-- Show idiomatic, modern syntax (PHP 8.3+ attributes, typed properties)
-- Cover the most common 80% use cases
+- Lead with the trigger context ("When writing commit messages:", "When the project contains a docker-compose.yml:")
+- Use bullet points or short sections, not prose walls
+- Include concrete examples (good vs bad) when the rule involves a format or style choice
+- Keep rules focused: one concern per file
 
-### Reference Documentation
+### Naming convention
 
-Place detailed documentation in `references/` subdirectory:
-- Break complex topics into separate files (e.g., `commands.md`, `output.md`, `helpers.md`)
-- Each file should be comprehensive and self-contained
-- Include advanced features, edge cases, and less common scenarios
-- Can be lengthy (reference files are 200-500+ lines)
+Use `kebab-case.md`, named after the concern, not the solution. Examples: `git-commit-guard.md`, `docker-compose-first.md`.
 
-### Content Guidelines
+## Tooling
 
-**Quick Reference (SKILL.md):**
-- Keep examples concise but complete
-- Focus on what developers need most frequently
-- Modern PHP syntax (attributes over annotations, typed properties)
-- Show practical, real-world patterns
-- Include testing examples where applicable
-
-**Detailed References:**
-- Comprehensive coverage of all features
-- Edge cases and advanced scenarios
-- Performance considerations
-- Security best practices
-- Migration notes for version upgrades
-
-## Symfony Component Coverage
-
-The repository includes skills for most major Symfony 7.4 components:
-- Core components: console, http-foundation, http-kernel, dependency-injection, security
-- Data handling: form, validator, serializer, property-access, property-info, type-info
-- Communication: http-client, mailer, translation, scheduler
-- Utilities: filesystem, finder, process, cache, lock, semaphore
-- Infrastructure: messenger, event-dispatcher, workflow, runtime
-- Format handling: yaml, mime, var-dumper, var-exporter
-- Specialized: clock, css-selector, dom-crawler, browser-kit, expression-language, ldap, intl, json-path, uid
-
-## Non-Symfony Skills
-
-- **API & ORM**: api-platform-4-2, doctrine-orm-3, doctrine-migrations-3
-- **Runtime**: frankenphp-1
-- **AI**: symfony-0-6-ai (experimental Symfony AI bundle)
-- **Testing**: phpunit-12, zenstruck-foundry-2
-
-Each follows the same structure pattern but focuses on its specific domain.
-
-## Working with This Repository
-
-**To add a new skill:**
-1. Create directory: `skills/{library-name}-{version}/`
-2. Add `SKILL.md` with frontmatter, quick reference, and links
-3. Create `references/` subdirectory
-4. Add detailed reference files in `references/`
-5. Ensure all cross-references between files work correctly
-
-**To update a skill:**
-1. Keep SKILL.md focused on quick reference and common patterns
-2. Move detailed/advanced content to reference files
-3. Update version numbers in directory name if major version changes
-4. Review trigger keywords in description to ensure skill loads appropriately
-
-**To verify a skill:**
-1. Ensure YAML frontmatter is valid
-2. Check that all code examples are syntactically correct
-3. Verify all links to reference files work
-4. Test that descriptions contain appropriate trigger keywords
-5. Confirm examples use modern, idiomatic syntax
+The **Context7 MCP** is installed globally (user scope) and provides up-to-date library documentation. See `rules/context7-mcp.md` for usage guidelines.
 
 ## Important Notes
 
-- This is a **documentation repository**, not a code repository - no tests, builds, or CI/CD
-- Skills are meant to be loaded by Claude Code when working on projects using these libraries
-- Focus on accuracy and completeness over brevity in reference files
-- The quick reference in SKILL.md should enable 80% of common tasks without reading detailed docs
-- Skills should be version-specific to ensure accuracy with API changes
+- This is a **rules-only repository**: no code, no tests, no CI
+- Rules are global: they apply to every project where this config is loaded
+- Keep rules short and actionable — a rule that requires reading to understand will be ignored
