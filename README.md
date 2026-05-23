@@ -9,9 +9,10 @@ Personal collection of [Claude Code](https://claude.com/code) behavioral rules â
 | `casual-tone` | All conversations | French replies, light tone; neutral in artifacts |
 | `concise-comments` | Code editing | One-line comments max, no obvious or task-specific remarks |
 | `context7-mcp` | Library/framework work | Fetch up-to-date docs via Context7 MCP before answering |
-| `context7-usage` | Library/framework work | Prefer Context7 over web search; pick high-score entries |
 | `conventional-commit` | Commit messages | Enforce Conventional Commits v1.0.0 format and types |
 | `docker-compose-first` | Projects with `compose.yaml` | Run commands via `docker compose exec/run`, not on host |
+| `doc-sync` | All tasks | Check whether project documentation needs updating at end of task |
+| `sourced-docs` | Markdown files | Link to authoritative sources for standards and specs |
 | `dx-report-format` | Reviews, audits, reports | Structured format with severity icons and summary table |
 | `git-commit-guard` | All git operations | Never commit without explicit confirmation; stage by name |
 | `no-em-dash` | All text output | Replace em dash with colon, comma, or two sentences |
@@ -20,7 +21,6 @@ Personal collection of [Claude Code](https://claude.com/code) behavioral rules â
 | `pragmatic-design` | Code design decisions | No premature abstractions; match scope to actual needs |
 | `precise-tech-terms` | Technical communication | Reserved words (push, merge, deploy) only for exact operations |
 | `reliable-information` | Any factual claim | Verify before stating; flag uncertainty; no invented URLs |
-| `sourced-docs` | Markdown documentation | Link to authoritative sources for standards and specs |
 
 ## File format
 
@@ -28,7 +28,7 @@ Each rule is a plain markdown file. Add frontmatter only when the rule should ap
 
 ```markdown
 ---
-paths: ["**/*.md"]
+paths: ["src/**/*.ts"]
 ---
 
 When doing X:
@@ -37,7 +37,7 @@ When doing X:
 - Not that
 ```
 
-Omit frontmatter for global rules.
+Omit frontmatter for global rules (most rules should be global).
 
 ## Adding a rule
 
@@ -51,4 +51,4 @@ Omit frontmatter for global rules.
 
 - Rules are global: they apply to every project where this config is loaded
 - This repo contains no code, no tests, no CI â€” rules only
-- Context7 MCP is installed globally (user scope) and used by the context7 rules
+- Context7 MCP is installed globally (user scope) and used by `context7-mcp`
