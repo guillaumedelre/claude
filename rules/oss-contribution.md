@@ -28,8 +28,11 @@ When contributing to an open source project (fixing an issue, submitting a PR):
 ## Quality checks
 
 - Before opening a PR, run the full test suite and every quality tool present in the project
-- Common tools to look for and run if present: `phpunit`, `psalm`, `phpstan`, `php-cs-fixer`, `rector`, `eslint`, `prettier`, `mypy`, `ruff`, etc.
-- Detect available tools from `composer.json` (scripts section), `Makefile`, `justfile`, CI configuration (`.github/workflows/`, `.gitlab-ci.yml`), or `pyproject.toml`
+- Detect available tools from the project's task runner and CI config:
+  - Task runners: `Makefile`, `justfile`, `package.json` scripts, `composer.json` scripts, `Taskfile.yml`
+  - CI config: `.github/workflows/`, `.gitlab-ci.yml`, `.circleci/`
+  - Language manifests: `pyproject.toml`, `composer.json`, `package.json`, `Cargo.toml`, `go.mod`
+- Run what CI runs — if a workflow defines lint + test steps, replicate those locally before pushing
 - Do not open a PR with a failing test or quality violation unless the failure pre-existed and is documented
 
 ## Pull request target
