@@ -1,4 +1,4 @@
-When working with external libraries, frameworks, or tools:
+When working with any library, framework, SDK, API, or CLI tool:
 
 ## When to use Context7
 
@@ -9,6 +9,8 @@ Call Context7 to fetch up-to-date documentation when:
 - Referencing a version-specific behavior or a recently released library
 - Debugging an issue where incorrect API usage is a likely cause
 - Comparing two libraries or explaining a library's behavior with confidence
+- Applies to well-known libraries too (Symfony, Doctrine, API Platform, PHPUnit, Foundry, FrankenPHP...) — training data may be outdated on specific versions
+- Prefer Context7 over web search for library-specific questions (API syntax, configuration, migration guides, CLI usage)
 
 Do **not** call Context7 for:
 
@@ -16,6 +18,7 @@ Do **not** call Context7 for:
 - General programming concepts not tied to a specific library
 - Information clearly available in the current codebase (read the file instead)
 - Libraries already covered by a loaded skill (prefer the skill's reference docs)
+- Refactoring, code review, debugging business logic
 
 ## How to use it
 
