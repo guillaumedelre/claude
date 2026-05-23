@@ -17,12 +17,14 @@ Rules are markdown files loaded automatically by Claude Code. Each rule enforces
     ├── concise-comments.md
     ├── context7-mcp.md
     ├── conventional-commit.md
+    ├── doc-sync.md
     ├── docker-compose-first.md
     ├── dx-report-format.md
     ├── git-commit-guard.md
     ├── no-em-dash.md
     ├── objective-analysis.md
     ├── oss-contribution.md
+    ├── pr-description.md
     ├── pragmatic-design.md
     ├── precise-tech-terms.md
     ├── reliable-information.md
@@ -62,6 +64,15 @@ Use `kebab-case.md`, named after the concern, not the solution. Examples: `git-c
 ## Tooling
 
 The **Context7 MCP** is installed globally (user scope) and provides up-to-date library documentation. See `rules/context7-mcp.md` for usage guidelines.
+
+## README Maintenance
+
+After every task that adds, removes, or modifies a rule file:
+
+- Update the table in `README.md` to reflect the current state of `rules/`
+- Each row: rule name (without `.md`), trigger context, one-sentence effect
+- Keep rows sorted alphabetically
+- Also update the `Repository Structure` tree in this file if files were added or removed
 
 ## Important Notes
 

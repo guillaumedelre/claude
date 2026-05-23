@@ -18,6 +18,7 @@ Personal collection of [Claude Code](https://claude.com/code) behavioral rules â
 | `no-em-dash` | All text output | Replace em dash with colon, comma, or two sentences |
 | `objective-analysis` | Code analysis, proposals | Facts and trade-offs only; no unsupported opinions |
 | `oss-contribution` | OSS issue/PR work | Read issue fully, check CONTRIBUTING, no direct main commit |
+| `pr-description` | Pull request creation/update | Write summary after diff is final; no ghost entries, no checklists |
 | `pragmatic-design` | Code design decisions | No premature abstractions; match scope to actual needs |
 | `precise-tech-terms` | Technical communication | Reserved words (push, merge, deploy) only for exact operations |
 | `reliable-information` | Any factual claim | Verify before stating; flag uncertainty; no invented URLs |
