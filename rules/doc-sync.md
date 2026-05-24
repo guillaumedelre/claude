@@ -1,6 +1,17 @@
-When completing a task that modifies code or configuration:
+When completing any task (code, configuration, or other):
 
-- Before closing the task, check whether any project documentation needs updating
-- Look for: `docs/`, `README.md`, `CHANGELOG.md`, wiki links in `README.md`, or any doc site config (`mkdocs.yml`, `docusaurus.config.js`, `_config.yml`)
-- If documentation exists and the change could affect it, flag it explicitly and ask whether to update it
-- If no documentation is found or the change is clearly internal, skip silently
+## Required before moving to the next task
+
+After every task, without exception, before proposing the next step:
+
+1. Scan all Markdown files in the project root and any `docs/` directory.
+2. Update every file whose content is affected by the completed task: roadmaps, changelogs, architecture docs, README, API references, etc.
+3. If a file uses a checklist, tick every item that was delivered (`- [ ]` → `- [x]`).
+
+## Rules
+
+- Never propose the next task before this scan is done.
+- Do not wait for the user to ask — do it proactively every time.
+- Update files even if they are gitignored — local accuracy matters.
+- If nothing needs updating, skip silently — do not mention it.
+- If documentation exists and the change could affect a doc site config (`mkdocs.yml`, `docusaurus.config.js`, `_config.yml`), update it too.
